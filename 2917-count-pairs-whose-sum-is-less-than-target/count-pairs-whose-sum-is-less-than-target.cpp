@@ -1,16 +1,21 @@
 class Solution {
 public:
     int countPairs(vector<int>& nums, int target) {
+        int size = nums.size();
+        std::sort(nums.begin(), nums.end());
+        int i = 0;
+        int j = size - 1;
         int pairs = 0;
-
-        for(int i = 0; i < nums.size(); i++){
-            for(int j = i + 1; j < nums.size(); j++){
-                if(nums[i] + nums[j] < target){
-                    pairs += 1;
-                }
+        while (i < j) {
+            int sum = nums[i] + nums[j];
+            if (sum < target) {
+                pairs += (j - i);
+                i++;
+            } else {
+                j--;
             }
         }
-
+        
         return pairs;
     }
 };
