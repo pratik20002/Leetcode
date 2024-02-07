@@ -6,7 +6,7 @@ public:
         unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
 
         while (left < right) {
-            
+            // Move left pointer to the next vowel
             while (left < right && vowels.find(s[left]) == vowels.end()) {
                 left++;
             }
