@@ -4,9 +4,7 @@ class Solution:
 
         while left < right:
             if s[left] != s[right]:
-                skipL, skipR = s[left + 1: right + 1], s[left:right]
-
-                return (skipL == skipL[::-1] or skipR == skipR[::-1])
+                return (s[left + 1: right + 1] == s[left + 1: right + 1][::-1] or s[left:right] == s[left:right][::-1])
             
             left, right = left + 1, right - 1
         
