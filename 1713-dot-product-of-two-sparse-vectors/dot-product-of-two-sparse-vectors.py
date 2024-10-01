@@ -7,9 +7,10 @@ class SparseVector:
 
     # Return the dotProduct of two sparse vectors
     def dotProduct(self, vec: 'SparseVector') -> int:
+        
+        #Hashmap and 2Pointer 
         dot_product = 0
         i = j = 0
-
         while i < len(self.nums) and j < len(vec.nums):
             i_idx, i_num = self.nums[i]
             j_idx, j_num = vec.nums[j]
