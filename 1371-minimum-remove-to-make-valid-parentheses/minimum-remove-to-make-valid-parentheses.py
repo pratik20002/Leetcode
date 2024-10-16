@@ -3,26 +3,25 @@ class Solution:
         res = []
         cnt = 0
 
-        for c in s:
-            if c == "(":
-                res.append(c)
+        for char in s:
+            if char == "(":
+                res.append(char)
                 cnt += 1
             
-            elif c == ")" and cnt > 0:
-                res.append(c)
+            elif char == ")" and cnt > 0:
+                res.append(char)
                 cnt -= 1
             
-            elif c != ")":
-                res.append(c)
+            elif char != ")":
+                res.append(char)
 
-            
         filtered_str = []
 
-        for element in res[::-1]:
-            if element == "(" and cnt > 0:
+        for c in res[::-1]:
+            if c == "(" and cnt > 0:
                 cnt -= 1
             else:
-                filtered_str.append(element)
-
+                filtered_str.append(c)
+        
         return "".join(filtered_str[::-1])
-            
+                
