@@ -43,18 +43,19 @@
 
 class Solution:
     def depthSum(self, nestedList: List[NestedInteger]) -> int:
-        depth  = 1
+        depth = 1
         res = 0
         queue = collections.deque(nestedList)
 
         while queue:
             for _ in range(len(queue)):
                 curr = queue.popleft()
+
                 if curr.isInteger():
                     res += curr.getInteger() * depth
                 else:
                     queue.extend(curr.getList())
-            
+                
             depth += 1
         
         return res
