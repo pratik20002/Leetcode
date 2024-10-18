@@ -6,6 +6,8 @@ class Solution:
         for x in range(rows):
             for y in range(len(nums[x])):
                 v.append((x + y, y, nums[x][y]))
+
+        print(v)
         
         res = list(x[2] for x in sorted(v))
         return res
