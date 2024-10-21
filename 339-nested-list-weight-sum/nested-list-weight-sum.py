@@ -50,12 +50,11 @@ class Solution:
         while queue:
             for _ in range(len(queue)):
                 curr = queue.popleft()
-
                 if curr.isInteger():
                     res += curr.getInteger() * depth
                 else:
                     queue.extend(curr.getList())
-                
+            
             depth += 1
         
         return res
