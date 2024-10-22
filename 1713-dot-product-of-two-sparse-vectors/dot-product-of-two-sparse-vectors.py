@@ -7,7 +7,6 @@ class SparseVector:
 
     # Return the dotProduct of two sparse vectors
     def dotProduct(self, vec: 'SparseVector') -> int:
-
         dot_product = 0
         i = j = 0
         
@@ -19,14 +18,15 @@ class SparseVector:
                 dot_product += (i_num * j_num)
                 i += 1
                 j += 1
-
+            
             elif i_idx > j_idx:
                 j += 1
-
+            
             else:
                 i += 1
-
-        return dot_product        
+        
+        return dot_product
+          
         
 # Your SparseVector object will be instantiated and called as such:
 # v1 = SparseVector(nums1)
