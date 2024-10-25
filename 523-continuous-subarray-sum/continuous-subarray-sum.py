@@ -12,3 +12,7 @@ class Solution:
                 return True
         
         return False
+
+        #23,2,4,6,7
+        
+        #23,2,6,4,7
