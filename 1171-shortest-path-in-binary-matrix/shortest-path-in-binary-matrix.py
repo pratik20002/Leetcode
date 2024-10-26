@@ -24,11 +24,10 @@ class Solution:
         #approach 2
         if grid[0][0] or grid[-1][-1]:
             return -1
-        
-        queue = collections.deque([(0, 0, 1)])
 
         directions = [(0, 1), (0, -1), (1, 0), (-1, 0), (1, 1), (1, -1), (-1, 1), (-1, -1)]
-
+        
+        queue = collections.deque([(0, 0, 1)])
         grid[0][0] = 1
 
         while queue:
@@ -45,3 +44,6 @@ class Solution:
                     queue.append((new_x, new_y, path_len + 1))
                 
         return -1
+        
+
+        
