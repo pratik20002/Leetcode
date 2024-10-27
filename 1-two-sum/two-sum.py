@@ -1,9 +1,10 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        prevMap = {} #Val : Index
+        index_dict = {}
 
-        for i, n in enumerate(nums):
-            diff = target - n
-            if diff in prevMap:
-                return [prevMap[diff], i]
-            prevMap[n] = i
+        for i, num in enumerate(nums):
+            to_search = target - num
+            if to_search in index_dict:
+                return [i, index_dict[to_search]]
+            
+            index_dict[num] = i
