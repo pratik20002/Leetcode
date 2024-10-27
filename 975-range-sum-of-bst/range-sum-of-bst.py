@@ -9,10 +9,14 @@ class Solution:
         if not root:
             return 0
 
-        if root.val > high:
-            return self.rangeSumBST(root.left, low, high)
-
-        if root.val < low:
-            return self.rangeSumBST(root.right, low, high)
-
-        return root.val + self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
+        total_sum = 0
+        if low <= root.val <= high:
+            total_sum += root.val
+        
+        if root.val > low:
+            total_sum += self.rangeSumBST(root.left, low, high)
+        
+        if root.val < high:
+            total_sum += self.rangeSumBST(root.right, low, high)
+        
+        return total_sum
