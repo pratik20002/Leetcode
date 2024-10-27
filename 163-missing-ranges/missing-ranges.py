@@ -19,3 +19,6 @@ class Solution:
             missing_ranges.append([nums[n - 1] + 1, upper])
 
         return missing_ranges
+
+        #T = N
+        #S = N
