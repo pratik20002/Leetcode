@@ -1,12 +1,10 @@
 class Solution:
     def removeDuplicates(self, s: str) -> str:
-        output = []
-
+        res = []
         for ch in s:
-            if output and ch == output[-1]:
-                output.pop()
+            if res and ch == res[-1]:
+                res.pop()
             else:
-                output.append(ch)
+                res.append(ch)
 
-        return "".join(output)
-        
+        return "".join(res)
