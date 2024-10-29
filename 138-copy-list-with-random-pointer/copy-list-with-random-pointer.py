@@ -11,14 +11,12 @@ class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         oldToCopy = {None : None}
 
-        #1st Pass
         cur = head
         while cur:
             copy = Node(cur.val)
             oldToCopy[cur] = copy
             cur = cur.next
-
-        #2nd Pass
+        
         cur = head
         while cur:
             copy = oldToCopy[cur]
