@@ -10,7 +10,7 @@ class Solution:
             to_left = nums[mid - 1] if mid > 0 else float("-inf")
             to_right = nums[mid + 1] if mid < len(nums) - 1 else float("-inf")
 
-            if  to_left < mid_val > to_right:
+            if to_left < mid_val > to_right:
                 return mid
             
             elif to_left < mid_val < to_right:
