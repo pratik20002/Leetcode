@@ -31,9 +31,8 @@ class Solution:
             
             if node.right:
                 queue.append((node.right, row + 1, col + 1))
-            
+        
         res = []
-
         for level in range(min_col, max_col + 1):
             items = level_items[level]
             items.sort(key = lambda x: (x[1], x[0]))
@@ -41,3 +40,6 @@ class Solution:
             res.append(items)
         
         return res
+    
+#T - > NlogN
+#S - > O(N)
