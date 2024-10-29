@@ -1,5 +1,6 @@
 class Solution:
     def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
+
         def is_diagonal_univalue(row, col):
             val = matrix[row][col]
 
@@ -9,15 +10,15 @@ class Solution:
                 
                 row += 1
                 col += 1
-
+            
             return True
-
+        
         for col in range(len(matrix[0])):
             if not is_diagonal_univalue(0, col):
                 return False
-
+            
         for row in range(len(matrix)):
             if not is_diagonal_univalue(row, 0):
                 return False
-            
+        
         return True
