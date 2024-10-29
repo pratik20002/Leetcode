@@ -7,7 +7,7 @@ class Solution:
             if element == "" or element == ".":
                 continue
             
-            if element == "..":
+            elif element == "..":
                 if stack:
                     stack.pop()
             
