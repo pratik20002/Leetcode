@@ -13,7 +13,7 @@ class Solution:
             
             num = num * 10 + cur.val
 
-            if not cur.left and not cur.right:
+            if not cur.right and not cur.left:
                 return num
             
             return dfs(cur.left, num) + dfs(cur.right, num)
