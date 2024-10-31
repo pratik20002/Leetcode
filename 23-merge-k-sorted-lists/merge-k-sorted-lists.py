@@ -19,5 +19,3 @@ class Solution:
         
         return head.next
         
-        #Method2
-        #for lis
