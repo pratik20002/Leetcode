@@ -9,20 +9,20 @@ class Solution:
         if not root:
             return []
         
-        queue = collections.deque([root])
+        queue = collections.deque([(root)])
         res = []
+        
         while queue:
             level_length = len(queue)
             for i in range(level_length):
-                node = queue.popleft()
+                cur = queue.popleft()
                 if i == level_length - 1:
-                    res.append(node.val)
+                    res.append(cur.val)
                 
-                if node.left:
-                    queue.append(node.left)
+                if cur.left:
+                    queue.append(cur.left)
                 
-                if node.right:
-                    queue.append(node.right)
-                
-        
+                if cur.right:
+                    queue.append(cur.right)
+            
         return res
