@@ -46,15 +46,13 @@ class Solution:
         if not root:
             return []
 
-        level_items = collections.defaultdict(list)
+        level_items =  collections.defaultdict(list)
         queue = collections.deque([(root, 0, 0)])
-        res = []
-        
-        max_col = float("-inf")
         min_col = float("inf")
+        max_col = float("-inf")
+
         while queue:
             node, row, col = queue.popleft()
-
             if col < min_col:
                 min_col = col
             
@@ -62,7 +60,6 @@ class Solution:
                 max_col = col
             
             level_items[col].append((node.val, row))
-        
 
             if node.left:
                 queue.append((node.left, row + 1, col - 1))
@@ -70,9 +67,10 @@ class Solution:
             if node.right:
                 queue.append((node.right, row + 1, col + 1))
         
+        res = []
         for level in range(min_col, max_col + 1):
             items = level_items[level]
-            items.sort(key = lambda x: (x[1], x[0]))
+            items.sort(key = lambda x:(x[1], x[0]))
             items = [val for val, _ in items]
             res.append(items)
         
