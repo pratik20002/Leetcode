@@ -21,17 +21,19 @@ class Solution:
         self.last.right = self.first
 
         return self.first
-
+    
     def inorder_link(self, node):
         if node:
             self.inorder_link(node.left)
 
             if not self.last:
                 self.first = node
-            
             else:
                 node.left = self.last
                 self.last.right = node
             
             self.last = node
             self.inorder_link(node.right)
+    
+#T -> O(N)
+#S -> O(log N) -> If tree is balanced else O(N)
