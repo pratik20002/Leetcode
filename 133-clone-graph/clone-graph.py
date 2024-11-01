@@ -11,14 +11,13 @@ class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         if not node:
             return None
-            
+        
         cloned = {}
         cloned[node] = Node(node.val, [])
         queue = collections.deque([node])
 
         while queue:
             cur = queue.popleft()
-
             for neighbor in cur.neighbors:
                 if neighbor not in cloned:
                     cloned[neighbor] = Node(neighbor.val, [])
