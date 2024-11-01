@@ -5,7 +5,7 @@ class Solution:
         
         p1 = p2 = 0
         res = []
-        
+
         while p1 < len(firstList) and p2 < len(secondList):
             start1, end1 = firstList[p1]
             start2, end2 = secondList[p2]
