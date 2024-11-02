@@ -1,1 +1,1 @@
-<h2>dot-product-of-two-sparse-vectors Notes</h2><hr>[ Time taken: 4 m 46 s ]
+<h2>dot-product-of-two-sparse-vectors Notes</h2><hr>[ Time taken: 5 m 45 s ]
