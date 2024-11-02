@@ -17,3 +17,4 @@ class Solution:
             nums1[insert_pos] = nums2[n - 1]
             n -= 1
             insert_pos -= 1
+            
