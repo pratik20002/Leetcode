@@ -3,20 +3,17 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        pivot = None
-        for i in range(len(nums) - 1, 0, -1):
-            if nums[i] > nums[i - 1]:
-                pivot = i - 1
-                break
-        else:
-            nums.reverse()
-            return
-        
-        swap = len(nums) - 1
-        
-        while nums[swap] <= nums[pivot]:
-            swap -= 1
-        
-        nums[swap], nums[pivot] = nums[pivot], nums[swap]
-        nums[pivot+1:] = reversed(nums[pivot + 1:])
-        return
+        pivot = len(nums) - 2
+        while pivot >= 0 and nums[pivot] >= nums[pivot + 1]:
+            pivot -= 1
+
+        if pivot >= 0:
+            successor = len(nums) - 1
+
+            while nums[successor] <= nums[pivot]:
+                successor -= 1
+
+            nums[pivot], nums[successor] = nums[successor], nums[pivot]
+
+        nums[pivot + 1:] = reversed(nums[pivot+1:])       
+        return nums
