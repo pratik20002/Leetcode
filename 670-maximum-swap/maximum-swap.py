@@ -13,6 +13,6 @@ class Solution:
             
             if nums[i] < max_digit:
                 swap_i, swap_j = i, max_i
-        
+            
         nums[swap_i], nums[swap_j] = nums[swap_j], nums[swap_i]
         return int("".join(nums))
