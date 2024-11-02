@@ -45,16 +45,16 @@ class Solution:
     def depthSum(self, nestedList: List[NestedInteger]) -> int:
         depth = 1
         total = 0
-
         queue = collections.deque(nestedList)
 
         while queue:
+            
             for i in range(len(queue)):
                 curr = queue.popleft()
                 if curr.isInteger():
-                    total += curr.getInteger() * depth
+                    total += (depth * curr.getInteger())
                 else:
                     queue.extend(curr.getList())
             depth += 1
-
+        
         return total
