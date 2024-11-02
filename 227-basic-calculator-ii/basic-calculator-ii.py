@@ -1,10 +1,10 @@
 class Solution:
     def calculate(self, s: str) -> int:
-         i = 0
-         res = cur = prev = 0
-         curr_operation = "+"
+        i = 0
+        res = cur = prev = 0
+        curr_operation = "+"
 
-         while i < len(s):
+        while i < len(s):
             cur_char = s[i]
             if cur_char.isdigit():
                 while i < len(s) and s[i].isdigit():
@@ -36,4 +36,4 @@ class Solution:
             
             i += 1
         
-         return res
+        return res
