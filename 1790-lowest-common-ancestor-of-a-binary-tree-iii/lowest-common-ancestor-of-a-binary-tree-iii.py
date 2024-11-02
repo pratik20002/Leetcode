@@ -30,4 +30,4 @@ class Solution:
         while p_copy != q_copy:
             p_copy = p_copy.parent if p_copy else q
             q_copy = q_copy.parent if q_copy else p
-        return q_copy
+        return p_copy
