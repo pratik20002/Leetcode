@@ -32,6 +32,7 @@ class Solution:
             lists = mergedLists
         return lists[0]
 
+    
     def mergeList(self, l1, l2):
         dummy = ListNode()
         tail = dummy
@@ -44,9 +45,10 @@ class Solution:
                 tail.next = l2
                 l2 = l2.next
             tail = tail.next
+        
         if l1:
             tail.next = l1
         if l2:
             tail.next = l2
-            
+        
         return dummy.next
