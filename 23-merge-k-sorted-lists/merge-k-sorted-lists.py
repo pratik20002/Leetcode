@@ -22,7 +22,7 @@ class Solution:
         #Method2
         min_heap = []
 
-        for index, linked_list in enumerate(lists):
+        for index, linked_list in enumerate(lists): #[-1, 1], [0, 2]
             if linked_list:
                 heapq.heappush(min_heap, (linked_list.val, index, linked_list))
         
