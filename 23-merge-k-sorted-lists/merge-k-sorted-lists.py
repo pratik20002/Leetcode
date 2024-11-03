@@ -20,35 +20,21 @@ class Solution:
         # return head.next
         
         #Method2
-        if not lists or len(lists) == 0:
-            return None
-        
-        while len(lists) > 1:
-            mergedLists = []
-            for i in range(0, len(lists), 2):
-                l1 = lists[i]
-                l2 = lists[i + 1] if (i + 1) < len(lists) else None
-                mergedLists.append(self.mergeList(l1, l2))
-            lists = mergedLists
-        return lists[0]
+        min_heap = []
 
-    
-    def mergeList(self, l1, l2):
-        dummy = ListNode()
-        tail = dummy
-
-        while l1 and l2:
-            if l1.val < l2.val:
-                tail.next = l1
-                l1 = l1.next
-            else:
-                tail.next = l2
-                l2 = l2.next
-            tail = tail.next
+        for index, linked_list in enumerate(lists):
+            if linked_list:
+                heapq.heappush(min_heap, (linked_list.val, index, linked_list))
         
-        if l1:
-            tail.next = l1
-        if l2:
-            tail.next = l2
+        dummy = ListNode(0)
+        cur = dummy
+
+        while min_heap:
+            val, index, node = heapq.heappop(min_heap)
+            cur.next = ListNode(val)
+            cur = cur.next
+
+            if node.next:
+                heapq.heappush(min_heap, (node.next.val, index, node.next))
         
         return dummy.next
