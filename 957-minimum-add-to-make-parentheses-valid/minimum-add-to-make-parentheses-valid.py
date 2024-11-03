@@ -1,13 +1,17 @@
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
-        open_Counter = 0
-        res = 0
-        for c in s:
-            if c == "(":
-                open_Counter += 1
-            else:
-                if open_Counter == 0:
-                    res += 1
-                open_Counter = max(open_Counter - 1, 0)
+        balance = 0
+        unmatched_closing = 0
+
+        for char in s:
+            if char == "(":
+                balance += 1
             
-        return res + open_Counter
+            elif char == ")":
+                if balance > 0:
+                    balance -= 1
+                
+                else:
+                    unmatched_closing += 1
+            
+        return (balance + unmatched_closing)
