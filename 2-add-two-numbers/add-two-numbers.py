@@ -13,23 +13,17 @@ class Solution:
             carry = 0
             sumList = ListNode(0)
             res = sumList
-
             while l1 or l2:
                 l1_val = l1.val if l1 else 0
                 l2_val = l2.val if l2 else 0
-
                 cur_sum = l1_val + l2_val + carry
                 sumList.next = ListNode(cur_sum % 10)
                 carry = cur_sum // 10
-
                 l1 = l1.next if l1 else None
                 l2 = l2.next if l2 else None
-
                 sumList = sumList.next
-            
             if carry:
                 sumList.next = ListNode(carry)
-            
             return res.next
         
         
