@@ -1,39 +1,34 @@
 class Solution:
     def calculate(self, s: str) -> int:
-        i = 0
-        res = cur = prev = 0
-        curr_operation = "+"
-
-        while i < len(s):
-            cur_char = s[i]
-            if cur_char.isdigit():
-                while i < len(s) and s[i].isdigit():
-                    cur = cur * 10 + int(s[i])
-                    i += 1
-                i -= 1
-                if curr_operation == "+":
-                    res += cur
-                    prev = cur
-                
-                elif curr_operation == "-":
-                    res -= cur
-                    prev = -cur
-
-                elif curr_operation == "*":
-                    res -= prev
-                    res += prev * cur
-                    prev = prev * cur
-
-                else:
-                    res -= prev
-                    res += int(prev / cur)
-                    prev = int(prev / cur)
-                
-                cur = 0
-            
-            elif cur_char != " ":
-                curr_operation = cur_char
-            
-            i += 1
+        result = 0  # Final result
+        last_op_val = 0  # Last operation value for handling *, /
+        current_number = 0  # Current number being built
+        operator = '+'  # Start with '+' as the initial operator
         
-        return res
+        # Iterate through the string
+        for i, char in enumerate(s):
+            # Build the current number if it's a digit
+            if char.isdigit():
+                current_number = current_number * 10 + int(char)
+            
+            # If char is an operator or the last character, process current number
+            if char in "+-*/" or i == len(s) - 1:
+                if operator == '+':
+                    result += last_op_val  # Commit the last operation
+                    last_op_val = current_number  # Set new last_op_val for +
+                elif operator == '-':
+                    result += last_op_val  # Commit the last operation
+                    last_op_val = -current_number  # Set new last_op_val for -
+                elif operator == '*':
+                    last_op_val *= current_number  # Apply multiplication directly to last_op_val
+                elif operator == '/':
+                    # Apply integer division directly to last_op_val (truncate towards zero)
+                    last_op_val = int(last_op_val / current_number)
+                
+                # Update the operator and reset current number
+                operator = char
+                current_number = 0
+        
+        # Add the last operation value to the result
+        result += last_op_val
+        return result
