@@ -35,26 +35,26 @@ class Solution:
         
         return res
 
-        # if not root:
-        #     return []
+        if not root:
+            return []
         
-        # column_items = collections.defaultdict(list)
-        # queue = collections.deque([(root, 0)])
+        column_items = collections.defaultdict(list)
+        queue = collections.deque([(root, 0)])
 
-        # while queue:
-        #     node, col = queue.popleft()
-        #     column_items[col].append(node.val)
+        while queue:
+            node, col = queue.popleft()
+            column_items[col].append(node.val)
 
-        #     if node.left:
-        #         queue.append((node.left, col - 1))
+            if node.left:
+                queue.append((node.left, col - 1))
             
-        #     if node.right:
-        #         queue.append((node.right, col + 1))
+            if node.right:
+                queue.append((node.right, col + 1))
             
-        # res = []
+        res = []
 
-        # for column in sorted(column_items.keys()):
-        #     res.append(column_items[column])
+        for column in sorted(column_items.keys()):
+            res.append(column_items[column])
         
-        # return res
+        return res
         
