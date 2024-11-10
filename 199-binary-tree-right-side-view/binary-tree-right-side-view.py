@@ -5,13 +5,6 @@
 #         self.left = left
 #         self.right = right
 
-"""
-        1
-        /\
-       2  3
-       /\ /\
-        5   4
-"""
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
 
@@ -27,8 +20,6 @@ class Solution:
             if node.left:
                 dfs(node.left, depth+1)
             
-            
-        
         res = []
         dfs(root, 0)
         return res
