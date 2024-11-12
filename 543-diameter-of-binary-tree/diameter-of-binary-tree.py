@@ -12,12 +12,17 @@ class Solution:
             if not node:
                 return 0, 0 #height, diameter
             
-            left_height, left_diameter = dfs(node.left)
-            right_height, right_diameter = dfs(node.right)
+            left_height, left_diameter = dfs(node.left) #1, 0
+            right_height, right_diameter = dfs(node.right) #1, 0
 
-            current_diameter = max(left_diameter, right_diameter, left_height + right_height)
-            current_height = 1 + max(left_height, right_height)
+            current_diameter = max(left_diameter, right_diameter, left_height + right_height) #2
+            current_height = 1 + max(left_height, right_height) #2
 
-            return current_height, current_diameter
+            return current_height, current_diameter #2,2
         
         return dfs(root)[1]
+
+    #[1,2,3,4,5]
+    #2 -> 
+    #4 -> 1, 0 
+    #5 ->
