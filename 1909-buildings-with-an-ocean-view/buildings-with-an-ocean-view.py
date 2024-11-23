@@ -6,5 +6,5 @@ class Solution:
             if heights[i] > max_height:
                 out.append(i)
                 max_height = heights[i]
-        
+                
         return out[::-1]
